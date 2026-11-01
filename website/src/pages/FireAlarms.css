@@ -1,0 +1,779 @@
+/* FIRE ALARMS PRODUCT PAGE */
+
+.product-page {
+  background: #101114;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* HERO */
+
+.product-hero {
+  padding: 130px 7% 110px;
+  background:
+    radial-gradient(
+      ellipse at 75% 20%,
+      rgba(255, 100, 28, 0.13),
+      transparent 55%
+    ),
+    #101114;
+}
+
+.product-hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product-hero h1 {
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin: 25px 0;
+}
+
+.product-hero h1 span {
+  color: #ff641c;
+}
+
+.product-hero p {
+  max-width: 650px;
+  color: #aeb2bc;
+  font-size: 19px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+/* INTRODUCTION */
+
+.product-intro {
+  padding: 100px 7%;
+  text-align: center;
+  background: #17191e;
+}
+
+.product-intro h2 {
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+.product-intro p {
+  max-width: 750px;
+  margin: 0 auto;
+  color: #aeb2bc;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* FEATURE CARDS */
+
+.product-features {
+  padding: 100px 7%;
+}
+
+.product-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.product-feature-card {
+  background: #1b1d23;
+  border: 1px solid #30343d;
+  border-radius: 16px;
+  padding: 35px;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.product-feature-card:hover {
+  border-color: #ff641c;
+  transform: translateY(-4px);
+}
+
+.product-feature-card > span {
+  color: #ff641c;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.product-feature-card h3 {
+  font-size: 23px;
+  margin: 25px 0 15px;
+}
+
+.product-feature-card p {
+  color: #aeb2bc;
+  line-height: 1.8;
+}
+
+/* ENGINEER HIGHLIGHT */
+
+.product-highlight {
+  padding: 110px 7%;
+  background: #17191e;
+}
+
+.product-highlight-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product-highlight h2 {
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 1.2;
+  margin: 25px 0;
+}
+
+.product-highlight p {
+  max-width: 700px;
+  color: #aeb2bc;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.product-highlight-note {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 18px 24px;
+  border-left: 3px solid #ff641c;
+  background: #22252c;
+  color: #ffffff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .product-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .product-hero {
+    padding: 90px 6% 75px;
+  }
+
+  .product-intro,
+  .product-features,
+  .product-highlight {
+    padding: 75px 6%;
+  }
+
+  .product-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-feature-card {
+    padding: 28px;
+  }
+}
+
+/* =========================================
+   INSTAFIREPILOT — SMART PANEL SELECTOR
+   ========================================= */
+
+.panel-selector {
+  background: #12151b;
+}
+
+/* Section introduction */
+
+.panel-selector > .product-intro {
+  background: transparent;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 48px;
+}
+
+/* Four manufacturer cards */
+
+.panel-selector .product-feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* Interactive panel buttons */
+
+.panel-selector .product-feature-card {
+  appearance: none;
+    flex: 1 1 205px;
+  max-width: 260px;
+  width: 100%;
+  min-width: 0;
+  min-height: 185px;
+  color: #ffffff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: #1b1d23;
+  border: 1px solid #30343d;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.panel-selector .product-feature-card h3 {
+  margin: 20px 0 10px;
+  font-size: 22px;
+}
+
+.panel-selector .product-feature-card p {
+  margin: 0;
+}
+
+/* Selected manufacturer */
+
+.panel-selector .product-feature-card[aria-pressed="true"] {
+  background: #28221e;
+  border-color: #ff641c;
+  box-shadow: 0 0 0 1px rgba(255, 100, 28, 0.25);
+}
+
+.panel-selector .product-feature-card[aria-pressed="true"] > span {
+  color: #ff854a;
+}
+
+/* Keyboard accessibility */
+
+.panel-selector .product-feature-card:focus-visible {
+  outline: 3px solid #ff854a;
+  outline-offset: 4px;
+}
+
+/* Configuration preview */
+
+.panel-selector > .product-intro:last-child {
+  max-width: 1300px;
+  margin: 32px auto 0;
+  padding: 35px 40px;
+  text-align: left;
+  background: #1b1d23;
+  border: 1px solid #30343d;
+  border-left: 4px solid #ff641c;
+  border-radius: 16px;
+}
+
+.panel-selector > .product-intro:last-child h2 {
+  font-size: clamp(26px, 3vw, 38px);
+  margin: 16px 0;
+}
+
+.panel-selector > .product-intro:last-child p {
+  max-width: none;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.panel-selector > .product-intro:last-child strong {
+  color: #ffffff;
+}
+
+/* Tablet */
+
+@media (max-width: 950px) {
+  .panel-selector .product-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  .panel-selector .product-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-selector .product-feature-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .panel-selector > .product-intro:last-child {
+    padding: 26px 22px;
+  }
+}
+.panel-selector-image {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  margin: 18px 0;
+  padding: 12px;
+  background: #15171c;
+  border-radius: 12px;
+}
+
+/* CUSTOM ZONE COLOUR DEMONSTRATION */
+
+.panel-zone-example {
+  margin-top: 32px;
+  padding-top: 25px;
+  border-top: 1px solid #30343d;
+}
+
+.panel-zone-example h3 {
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.panel-zone-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.panel-zone-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #15171c;
+  border: 1px solid #30343d;
+  border-left: 6px solid var(--zone-colour);
+  border-radius: 10px;
+}
+
+.panel-zone-number {
+  font-weight: 700;
+  color: #ffffff;
+  min-width: 85px;
+}
+
+.panel-zone-area {
+  flex: 1;
+  color: #aeb2bc;
+}
+
+.panel-zone-item input[type="color"] {
+  width: 44px;
+  height: 38px;
+  border: 0;
+  padding: 2px;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .panel-zone-item {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* =========================================
+   INSTAFIREPILOT — DEVICE REGISTER PREVIEW
+   ========================================= */
+
+.panel-device-register {
+  margin-top: 35px;
+  padding-top: 30px;
+  border-top: 1px solid #30343d;
+}
+
+.panel-device-register h3 {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+
+.panel-device-register > p {
+  color: #aeb2bc;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Scrollable table container */
+
+.panel-register-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.panel-register-filter {
+  display: flex;
+  flex: 0 1 240px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.panel-register-filter label {
+  color: #d5d8df;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.panel-register-hide-sounders {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 10px;
+  min-height: 44px;
+  color: #d5d8df;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.panel-register-hide-sounders input {
+  width: 20px;
+  height: 20px;
+  accent-color: #ff641c;
+}
+
+.panel-register-hide-sounders input:focus-visible {
+  outline: 2px solid #ff854a;
+  outline-offset: 3px;
+}
+
+.panel-register-clear-filters {
+  align-self: flex-end;
+  min-height: 44px;
+  padding: 10px 16px;
+  background: #252932;
+  color: #ff854a;
+  border: 1px solid #444a55;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.panel-register-clear-filters:hover:not(:disabled) {
+  background: #30343d;
+  border-color: #ff641c;
+}
+
+.panel-register-clear-filters:focus-visible {
+  outline: 2px solid #ff854a;
+  outline-offset: 3px;
+}
+
+.panel-register-clear-filters:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 650px) {
+  .panel-register-filter {
+    flex: 1 1 100%;
+  }
+
+  .panel-register-clear-filters {
+    flex: 1 1 100%;
+  }
+}
+
+.panel-register-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 24px;
+  border: 1px solid #30343d;
+  border-radius: 12px;
+}
+
+/* Register table */
+
+.panel-register-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.panel-register-table thead {
+  background: #252932;
+}
+
+.panel-register-table th {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 18px 20px;
+  white-space: nowrap;
+}
+
+.panel-register-table td {
+  padding: 18px 20px;
+  color: #d5d8df;
+  font-size: 15px;
+  border-top: 1px solid #30343d;
+}
+
+.panel-register-table tbody tr {
+  background: #1a1d23;
+  transition: background 0.2s ease;
+}
+
+.panel-register-table tbody tr:nth-child(even) {
+  background: #20232a;
+}
+
+.panel-register-table tbody tr:hover {
+  background: #292e38;
+}
+
+/* Coloured zone badges */
+
+.register-zone-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 48px;
+  padding: 8px 12px;
+
+  border-left: 5px solid var(--zone-colour);
+  background: #30343d;
+  border-radius: 6px;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Example-only disclaimer */
+
+.panel-device-register .register-demo-note {
+  margin-top: 18px;
+  color: #8d94a1;
+  font-size: 13px;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 650px) {
+  .panel-device-register h3 {
+    font-size: 21px;
+  }
+
+  .panel-register-table th,
+  .panel-register-table td {
+    padding: 14px 15px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 650px) {
+  .panel-selector .product-feature-card {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}
+
+/* PANEL CONFIGURATION MODE */
+
+.panel-config-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.panel-config-mode button {
+  flex: 1 1 180px;
+  padding: 15px 20px;
+  background: #15171c;
+  color: #aeb2bc;
+  border: 1px solid #30343d;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.panel-config-mode button.active {
+  background: #ff641c;
+  color: #ffffff;
+  border-color: #ff641c;
+}
+
+.panel-config-mode button:focus-visible {
+  outline: 3px solid #ff854a;
+  outline-offset: 3px;
+}
+
+.panel-zone-name-input {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 12px;
+  background: #22252c;
+  color: #ffffff;
+  border: 1px solid #ff641c;
+  border-radius: 8px;
+  font: inherit;
+}
+/* ZONE NAME DISPLAY IN DEVICE REGISTER */
+
+.register-zone-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.register-zone-name {
+  color: #aeb2bc;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =========================================
+   DEVICE REGISTER — ZONE SELECTION
+   ========================================= */
+
+.register-zone-cell {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Zone dropdown */
+
+.register-zone-select {
+  min-width: 120px;
+  max-width: 100%;
+  padding: 10px 14px;
+
+  background: #252932;
+  color: #ffffff;
+
+  border: 1px solid #444a55;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  color-scheme: dark;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Hover */
+
+.register-zone-select:hover {
+  background: #30343d;
+  border-color: #ff641c;
+}
+
+/* Selected / keyboard focus */
+
+.register-zone-select:focus-visible {
+  outline: 2px solid #ff641c;
+  outline-offset: 2px;
+  border-color: #ff641c;
+}
+
+/* Dropdown options */
+
+.register-zone-select option {
+  background: #1b1d23;
+  color: #ffffff;
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  .register-zone-select {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+/* ZONE COVERAGE DESCRIPTION */
+
+.panel-zone-name-input {
+  flex: 1 1 260px;
+  min-width: 0;
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 14px;
+
+  background: #22252c;
+  color: #ffffff;
+
+  border: 1px solid #ff641c;
+  border-radius: 8px;
+
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.panel-zone-name-input:focus-visible {
+  outline: 2px solid #ff854a;
+  outline-offset: 2px;
+}
+
+/* Show longer coverage descriptions in the register */
+
+.register-zone-name {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  max-width: 320px;
+}
+/* ADD ZONE BUTTON */
+
+.panel-add-zone {
+  margin-top: 20px;
+  padding: 13px 22px;
+  background: #252932;
+  color: #ff854a;
+  border: 1px dashed #ff641c;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.panel-add-zone:hover {
+  background: #39302c;
+}
+
+.panel-add-zone:focus-visible {
+  outline: 3px solid #ff854a;
+  outline-offset: 3px;
+}
+
+/* REMOVE CUSTOM ZONE BUTTON */
+
+.panel-remove-zone {
+  padding: 10px 16px;
+  background: #302326;
+  color: #ff9292;
+  border: 1px solid #85434a;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.panel-remove-zone:hover:not(:disabled) {
+  background: #542b32;
+  border-color: #ff9292;
+}
+
+.panel-remove-zone:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.panel-remove-zone:focus-visible {
+  outline: 2px solid #ff9292;
+  outline-offset: 3px;
+}

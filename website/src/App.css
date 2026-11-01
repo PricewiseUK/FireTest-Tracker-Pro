@@ -1,0 +1,729 @@
+
+
+/* INSTAFIREPILOT — PUBLIC WEBSITE */
+
+.website {
+  min-height: 100vh;
+  background: #101114;
+  color: #ffffff;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  height: 90px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #101114;
+  border-bottom: 1px solid #303238;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  width: 205px;
+  max-height: 65px;
+  object-fit: contain;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-links a {
+  color: #f4f5f7;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #ff641c;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-button {
+  color: #f4f5f7;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.login-button:hover {
+  color: #ff641c;
+}
+
+.demo-button {
+  background: #ff641c;
+  color: #ffffff;
+  padding: 13px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.demo-button:hover {
+  background: #e65310;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  padding: 80px 8%;
+
+  background:
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(255, 100, 28, 0.12),
+      transparent 38%
+    ),
+    linear-gradient(135deg, #171a20, #272c35);
+}
+
+/* FIRE ALARM PANEL BACKGROUND */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("./assets/Firealarms.webp");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: min(72vw, 1100px) auto;
+
+  opacity: 0.40;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.hero-label {
+  display: inline-block;
+  color: #ff8b54;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin: 0 0 28px;
+}
+
+.hero h1 span {
+  color: #ff641c;
+}
+
+.hero p {
+  max-width: 650px;
+  color: #c4c9d1;
+  font-size: 19px;
+  line-height: 1.8;
+  margin-bottom: 38px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-primary,
+.hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.hero-primary {
+  background: #ff641c;
+  color: #ffffff;
+}
+
+.hero-primary:hover {
+  background: #e65310;
+  transform: translateY(-2px);
+}
+
+.hero-secondary {
+  color: #ffffff;
+  border: 1px solid #68707d;
+}
+
+.hero-secondary:hover {
+  border-color: #ff641c;
+  background: rgba(255, 100, 28, 0.1);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 0 4%;
+  }
+
+  .navbar-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    height: auto;
+    min-height: 80px;
+    padding: 16px 5%;
+    flex-wrap: wrap;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    min-height: 550px;
+    padding: 70px 6%;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+}
+  /* ========================================
+   INSTAFIREPILOT — FEATURE CARDS
+    ======================================== */
+
+.features-section {
+  padding: 110px 8%;
+  background: #101114;
+}
+
+.features-heading {
+  max-width: 800px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #ff641c;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.features-heading h2 {
+  margin: 0 0 24px;
+  color: #ffffff;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.features-heading p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #aeb4be;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* FEATURE GRID */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+/* INDIVIDUAL CARDS */
+
+/* FEATURE CARDS */
+
+.feature-card {
+  position: relative;
+  text-decoration: none;
+  min-width: 0;
+  padding: 38px 32px;
+  background: #1b1e24;
+  border: 1px solid #30343d;
+  border-radius: 16px;
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.6s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ORANGE OVERLAY */
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 100, 28, 0.5);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+/* KEEP CONTENT ABOVE OVERLAY */
+
+.feature-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* HOVER EFFECT */
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff641c;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.feature-card:focus-within::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .feature-card::before {
+    transition: none;
+  }
+
+  .feature-card:hover {
+    transform: none;
+  }
+}
+
+/* ORANGE NUMBER */
+
+.feature-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 28px;
+  background: rgba(255, 100, 28, 0.12);
+  border: 1px solid rgba(255, 100, 28, 0.25);
+  border-radius: 12px;
+  color: #ff641c;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* CARD TEXT */
+
+.feature-card h3 {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #aeb4be;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .features-section {
+    padding: 85px 6%;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .features-section {
+    padding: 70px 5%;
+  }
+
+  .features-heading {
+    margin-bottom: 40px;
+  }
+
+  .features-heading h2 {
+    letter-spacing: -0.5px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .feature-card {
+    padding: 30px 25px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card {
+    transition: none;
+  }
+
+  .feature-card:hover {
+    transform: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .navbar-brand img {
+    width: 165px;
+  }
+
+  .navbar-actions {
+    gap: 10px;
+  }
+
+  .demo-button {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 65px 6%;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+    .hero-actions {
+    flex-direction: column;
+  }
+}
+
+  /* FEATURE CARD HOVER TEXT */
+
+.feature-card:hover h3,
+.feature-card:hover p,
+.feature-card:hover .feature-number {
+  color: #ffffff;
+}
+
+.feature-card:hover .feature-number {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.feature-card h3,
+.feature-card p,
+.feature-number {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card {
+    transition: none;
+  }
+
+  .feature-card h3,
+  .feature-card p,
+  .feature-number {
+    transition: none;
+  }
+}
+
+/* ========================================
+   INSTAFIREPILOT — WEBSITE FOOTER
+======================================== */
+
+.site-footer {
+  background: #17191e;
+  border-top: 1px solid #30343d;
+  padding: 85px 7% 0;
+}
+
+/* FOOTER LAYOUT */
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, minmax(0, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* BRANDING */
+
+.footer-logo {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 22px;
+}
+
+.footer-brand p {
+  color: #aeb4be;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 280px;
+  margin: 0 0 24px;
+}
+
+.footer-location {
+  color: #ff641c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 25px;
+}
+
+.footer-column a {
+  color: #aeb4be;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+  margin-bottom: 14px;
+
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+/* SUBTLE ORANGE HOVER */
+
+.footer-column a:hover {
+  color: #ff641c;
+  padding-left: 5px;
+}
+
+.footer-column a:focus-visible {
+  color: #ff641c;
+  outline: 2px solid #ff641c;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* BOTTOM COPYRIGHT BAR */
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 75px auto 0;
+  padding: 25px 0;
+  border-top: 1px solid #30343d;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p,
+.footer-bottom span {
+  color: #858b96;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .footer-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 45px;
+  }
+
+  .footer-brand {
+    grid-column: span 3;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .site-footer {
+    padding: 60px 6% 0;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 20px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+  .footer-column h3 {
+    margin-bottom: 18px;
+  }
+
+  .footer-column a {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-column a {
+    transition: none;
+  }
+}
+/* =========================================
+   INSTAFIREPILOT UNIVERSAL CARD GLOW
+   ========================================= */
+
+.product-feature-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Orange glow overlay */
+
+.product-feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 100, 28, 0.5);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Smooth fade when hovering */
+
+.product-feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Keep text above the glow */
+
+.product-feature-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Maintain readable text */
+
+.product-feature-card:hover h3,
+.product-feature-card:hover p,
+.product-feature-card:hover span {
+  color: #ffffff;
+}
+/* =========================================
+   INSTAFIREPILOT FLOATING NAVIGATION BAR
+   ========================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(16, 17, 20, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+/* HERO IMAGE — MOBILE */
+
+@media (max-width: 850px) {
+  .hero::before {
+    opacity: 0.08;
+    background-size: 900px auto;
+    background-position: center bottom;
+  }
+}

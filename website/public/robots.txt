@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://instafirepilot.co.uk/sitemap.xml
