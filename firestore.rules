@@ -1,0 +1,591 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // =====================================================
+    // AUTHENTICATION & COMPANY MEMBERSHIP
+    // =====================================================
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isCompanyMember(companyId) {
+      return signedIn()
+        && exists(
+          /databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)
+        )
+        && get(
+          /databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)
+        ).data.status == "active";
+    }
+
+    function siteExists(companyId, siteId) {
+      return exists(
+        /databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)
+      );
+    }
+
+    // Inspection-only policy. Do not change legacy proposal/asset permissions.
+    function inspectionWorkspaceActive(companyId) {
+      return signedIn()
+        && get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data.status == "active"
+        && get(/databases/$(database)/documents/companies/$(companyId)).data.status == "active";
+    }
+
+    function inspectionEngineerAtSite(companyId, siteId) {
+      let member = get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data;
+      let assignedSites = member.get("siteIds", []);
+      return signedIn() && member.status == "active"
+        && get(/databases/$(database)/documents/companies/$(companyId)).data.status == "active"
+        && (member.role == "engineer"
+          || (member.role == "senior_engineer" && assignedSites is list && siteId in assignedSites));
+    }
+
+    function inspectionReader(companyId, siteId, data) {
+      let member = get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data;
+      return inspectionWorkspaceActive(companyId)
+        && ((member.role == "engineer" && data.createdBy == request.auth.uid)
+          || (member.role == "senior_engineer" && member.get("siteIds", []) is list
+            && siteId in member.get("siteIds", []) && (data.createdBy == request.auth.uid || data.status == "submitted"))
+          || (member.role in ["owner", "office_admin"] && data.status == "submitted"));
+    }
+
+    // Global catalogue only. These grants NEVER authorise private company data.
+    function catalogueKind(kind) {
+      return kind in ["fire-alarm-panels", "fire-extinguishers", "emergency-lights", "fire-doors", "fire-blankets"];
+    }
+    function catalogueMember(companyId) {
+      let company = get(/databases/$(database)/documents/companies/$(companyId)).data;
+      let member = get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data;
+      return company.status == "active" && member.status == "active"
+        && member.role in ["engineer", "senior_engineer", "owner", "office_admin"];
+    }
+    function catalogueReader() {
+      let access = get(/databases/$(database)/documents/catalogueAccess/$(request.auth.uid)).data;
+      return access.schemaVersion == 1 && access.enabled == true
+        && access.authorisingCompanyId is string
+        && access.authorisingCompanyId.size() > 0
+        && !access.authorisingCompanyId.matches('.*[/].*')
+        && catalogueMember(access.authorisingCompanyId);
+    }
+    function publishedCatalogueModel(kind, modelId) {
+      return get(/databases/$(database)/documents/equipmentCatalogue/$(kind)/models/$(modelId)).data.publicationState == "published";
+    }
+    function publishedCatalogueVersion(kind, modelId, versionId) {
+      return get(/databases/$(database)/documents/equipmentCatalogue/$(kind)/models/$(modelId)/versions/$(versionId)).data.publicationState == "published";
+    }
+    // Provisioned only through trusted backend administration, never customer SDKs.
+    match /catalogueAccess/{uid} { allow read, write: if false; }
+    match /cataloguePublishers/{uid} { allow read, write: if false; }
+    match /cataloguePublicationAudit/{eventId} { allow read, write: if false; }
+    match /equipmentCatalogue/{kind} {
+      allow get: if signedIn() && catalogueKind(kind) && catalogueReader()
+        && resource.data.publicationState == "published";
+      allow list, write: if false;
+      match /models/{modelId} {
+        allow read: if signedIn() && catalogueKind(kind) && catalogueReader()
+          && resource.data.publicationState == "published";
+        allow write: if false;
+        match /versions/{versionId} {
+          allow read: if signedIn() && catalogueKind(kind) && catalogueReader()
+            && publishedCatalogueModel(kind, modelId)
+            && resource.data.publicationState == "published";
+          // All client writes denied, including central-admin custom claims.
+          allow write: if false;
+          match /files/{fileId} {
+            allow read: if signedIn() && catalogueKind(kind) && catalogueReader()
+              && publishedCatalogueModel(kind, modelId) && publishedCatalogueVersion(kind, modelId, versionId)
+              && resource.data.publicationState == "published";
+            allow write: if false;
+          }
+        }
+        // Withdrawal affects future selection, not immutable historical versions.
+        match /versionAvailability/{versionId} {
+          allow read: if signedIn() && catalogueKind(kind) && catalogueReader()
+            && publishedCatalogueModel(kind, modelId) && publishedCatalogueVersion(kind, modelId, versionId)
+            && resource.data.publicationState == "published";
+          allow write: if false;
+        }
+      }
+    }
+
+    // =====================================================
+    // COMPANY WORKSPACES
+    // =====================================================
+
+    match /companies/{companyId} {
+
+      function jobOffice() {
+        return inspectionWorkspaceActive(companyId)
+          && get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data.role in ["owner", "office_admin"];
+      }
+      function assignedJobEngineer(data) {
+        let member = get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data;
+        return inspectionWorkspaceActive(companyId) && data.companyId == companyId
+          && data.assignedEngineerUid == request.auth.uid
+          && (member.role == "engineer" || (member.role == "senior_engineer"
+            && member.get("siteIds", []) is list && data.siteId in member.get("siteIds", [])));
+      }
+      match /jobs/{jobId} {
+        allow get: if resource.data.schemaVersion == 1 && resource.data.companyId == companyId
+          && (jobOffice() || assignedJobEngineer(resource.data));
+        allow list: if jobOffice() || assignedJobEngineer(resource.data);
+        allow write: if false;
+        match /completions/{completionId} {
+          allow read: if jobOffice() || assignedJobEngineer(get(/databases/$(database)/documents/companies/$(companyId)/jobs/$(jobId)).data);
+          allow write: if false;
+        }
+        match /events/{eventId} {
+          allow read: if jobOffice();
+          allow write: if false;
+        }
+      }
+
+      function accountingOffice() {
+        let member = get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data;
+        return inspectionWorkspaceActive(companyId)
+          && (member.role == "owner" || (member.role == "office_admin"
+            && member.get("permissions", {}).get("accounting", false) == true));
+      }
+      // Credentials, OAuth state and queue writes are backend-only. These explicit
+      // grants contain only billing records and sanitised operation status.
+      match /accountingPrivate/{record} { allow read, write: if false; }
+      match /accountingSettings/{record} { allow read: if accountingOffice(); allow write: if false; }
+      match /billingCustomers/{record} { allow read: if accountingOffice(); allow write: if false; }
+      match /billingJobs/{record} { allow read: if accountingOffice(); allow write: if false; }
+      match /accountingContacts/{record} { allow read: if accountingOffice(); allow write: if false; }
+      match /accountingInvoices/{record} { allow read: if accountingOffice(); allow write: if false; }
+      match /accountingOutbox/{record} { allow read: if accountingOffice(); allow write: if false; }
+      match /accountingAudit/{record} { allow read: if accountingOffice(); allow write: if false; }
+
+      // Versioned, technically approved definitions provisioned by trusted tooling.
+      // No production checklist is supplied by this foundation.
+      match /extinguisherInspectionTemplates/{templateId} {
+        allow read: if inspectionWorkspaceActive(companyId)
+          && get(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid)).data.role in ["engineer", "senior_engineer", "owner", "office_admin"];
+        allow write: if false;
+      }
+
+      // Active members can read their active company.
+      allow read: if isCompanyMember(companyId)
+        && resource.data.status == "active";
+
+      // Company administration requires a trusted backend.
+      allow create, update, delete: if false;
+
+
+      // ===================================================
+      // COMPANY MEMBERS
+      // ===================================================
+
+      match /members/{userId} {
+
+        // Members can read their own membership record.
+        allow get: if signedIn()
+          && request.auth.uid == userId;
+
+        // Membership management remains protected.
+        allow list, create, update, delete: if false;
+      }
+
+
+      // ===================================================
+      // CUSTOMER SITES / BUILDINGS
+      // ===================================================
+
+      match /sites/{siteId} {
+
+        match /extinguisherInspections/{inspectionId} {
+          function template(data) {
+            return get(/databases/$(database)/documents/companies/$(companyId)/extinguisherInspectionTemplates/$(data.templateId)).data;
+          }
+
+          function inspectionSiteActive() {
+            return get(/databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)).data.status == "active";
+          }
+
+          function validAnswer(answer, question, allowedResults) {
+            let result = answer.result;
+            let notes = answer.notes;
+            // keys() requires a map. Required keys are dereferenced below.
+            return answer.keys().hasOnly(["questionId", "result", "notes"])
+              // Question IDs are validated when trusted templates are provisioned.
+              && answer.questionId == question.id
+              && result in allowedResults
+              && notes is string && notes.size() <= 2000
+              && (result != "na" || question.allowNA)
+              && (!(result in ["fail", "na"])
+                || notes.matches('(?s).*\\S.*'));
+          }
+
+          // Explicit bounded validation: rules cannot iterate arbitrary answer maps.
+          // Stable ordering and IDs come from the immutable template version.
+          function answerAt(answers, questions, index, allowedResults, initial) {
+            return questions.size() <= index
+              || (initial
+                ? answers[index] == { "questionId": questions[index].id, "result": null, "notes": "" }
+                : validAnswer(answers[index], questions[index], allowedResults));
+          }
+
+          function validAnswers(data, initial) {
+            let definition = template(data);
+            let questions = definition.questions;
+            let answers = data.answers;
+            let allowedResults = data.status == "submitted" ? ["pass", "fail", "na"] : [null, "pass", "fail", "na"];
+            return definition.schemaVersion == 1
+              && definition.status == "approved"
+              && definition.version == data.templateVersion
+              && definition.equipmentType == data.equipmentType
+              && definition.serviceType == data.serviceType
+              && questions is list && questions.size() >= 1 && questions.size() <= 8
+              && answers is list && answers.size() == questions.size()
+              && answerAt(answers, questions, 0, allowedResults, initial)
+              && answerAt(answers, questions, 1, allowedResults, initial)
+              && answerAt(answers, questions, 2, allowedResults, initial)
+              && answerAt(answers, questions, 3, allowedResults, initial)
+              && answerAt(answers, questions, 4, allowedResults, initial)
+              && answerAt(answers, questions, 5, allowedResults, initial)
+              && answerAt(answers, questions, 6, allowedResults, initial)
+              && answerAt(answers, questions, 7, allowedResults, initial);
+          }
+
+          function validShape(data) {
+            let fields = ["schemaVersion", "companyId", "siteId", "assetDocId",
+              "createdBy", "createdAt", "updatedAt", "equipmentType", "serviceType",
+              "templateId", "templateVersion", "assetSnapshot", "status", "revision",
+              "answers", "submittedAt"];
+            return data.keys().hasAll(fields) && data.keys().hasOnly(fields)
+              && data.schemaVersion is int && data.schemaVersion == 1
+              && data.companyId == companyId && data.siteId == siteId
+              && data.assetDocId is string && data.assetDocId.size() > 0
+              && data.assetDocId.size() <= 1500 && !data.assetDocId.matches('.*[/].*')
+              && data.createdBy == request.auth.uid
+              && data.createdAt is timestamp && data.updatedAt == request.time
+              && data.equipmentType is string && data.equipmentType.size() > 0
+              && data.equipmentType.size() <= 100
+              && data.serviceType is string && data.serviceType.size() > 0 && data.serviceType.size() <= 100
+              && data.templateId is string && data.templateId.size() > 0
+              && data.templateId.size() <= 1500 && !data.templateId.matches('.*[/].*')
+              && data.templateVersion is int && data.templateVersion >= 1
+              && data.revision is int && data.revision >= 1
+              && data.status in ["draft", "submitted"]
+              && (data.status == "draft" ? data.submittedAt == null : data.submittedAt == request.time);
+          }
+
+          function validAssetSnapshot(data) {
+            let asset = get(/databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)/extinguishers/$(data.assetDocId)).data;
+            return data.assetSnapshot is map
+              && data.assetSnapshot.keys().hasAll(["type", "location", "assetReference"])
+              && data.assetSnapshot.keys().hasOnly(["type", "location", "assetReference"])
+              && data.assetSnapshot.location is string && data.assetSnapshot.location.size() <= 200
+              && data.assetSnapshot.assetReference is string
+              && data.assetSnapshot.assetReference.size() > 0 && data.assetSnapshot.assetReference.size() <= 1500
+              && data.equipmentType == asset.type
+              && data.assetSnapshot.type == asset.type
+              && data.assetSnapshot.location == asset.get("location", "")
+              && data.assetSnapshot.assetReference == asset.get("assetId", data.assetDocId);
+          }
+
+          function committedJobResultReader() {
+            let data = resource.data;
+            let job = get(/databases/$(database)/documents/companies/$(companyId)/jobs/$(data.jobId)).data;
+            return data.schemaVersion == 2 && data.status == "completed"
+              && data.companyId == companyId && data.siteId == siteId
+              && job.companyId == companyId && job.siteId == siteId && job.workStatus == "completed"
+              && job.inspectionRef == "companies/" + companyId + "/sites/" + siteId + "/extinguisherInspections/" + inspectionId
+              && (jobOffice() || assignedJobEngineer(job));
+          }
+          // Keep existing owner/submitted-result queries valid. A schemaVersion
+          // branch would require every legacy query to constrain that field.
+          allow read: if inspectionSiteActive()
+            && (inspectionReader(companyId, siteId, resource.data) || committedJobResultReader());
+
+          allow create: if inspectionEngineerAtSite(companyId, siteId) && inspectionSiteActive()
+            && validShape(request.resource.data)
+            && request.resource.data.status == "draft"
+            && request.resource.data.createdAt == request.time
+            && request.resource.data.revision == 1
+            && validAssetSnapshot(request.resource.data)
+            && validAnswers(request.resource.data, true);
+
+          allow update: if inspectionEngineerAtSite(companyId, siteId) && inspectionSiteActive()
+            && resource.data.createdBy == request.auth.uid && resource.data.status == "draft"
+            // Creation validated static fields; the diff below keeps them immutable.
+            // Revalidating those fields on every edit exhausts rules expressions.
+            && resource.data.schemaVersion == 1
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+              "answers", "updatedAt", "revision", "status", "submittedAt"
+            ])
+            && request.resource.data.updatedAt == request.time
+            && request.resource.data.revision is int
+            && request.resource.data.revision == resource.data.revision + 1
+            && request.resource.data.status in ["draft", "submitted"]
+            && (request.resource.data.status == "draft"
+              ? request.resource.data.submittedAt == null
+              : request.resource.data.submittedAt == request.time)
+            && exists(/databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)/extinguishers/$(resource.data.assetDocId))
+            && validAnswers(request.resource.data, false);
+
+          // No client role can rewrite, reopen, delete or reassign a submission.
+          allow delete: if false;
+        }
+
+        // Active company members can read company sites.
+        allow read: if isCompanyMember(companyId);
+
+        // Site management will require authorised workflows.
+        allow create, update, delete: if false;
+
+
+        // ================================================
+        // APPROVED FIRE EXTINGUISHER ASSETS
+        // ================================================
+
+        match /extinguishers/{assetId} {
+
+          // Engineers may view approved equipment.
+          allow read: if isCompanyMember(companyId)
+            && siteExists(companyId, siteId);
+
+          // Engineers cannot directly create or modify
+          // official equipment records.
+          //
+          // Office approvals and data imports will use
+          // trusted server-side processes.
+          allow create, update, delete: if false;
+        }
+
+
+        // ================================================
+        // ENGINEER EXTINGUISHER ASSET PROPOSALS
+        // ================================================
+
+        match /extinguisherProposals/{proposalId} {
+
+          // Active company members may read proposals
+          // belonging to existing company sites.
+          allow read: if isCompanyMember(companyId)
+            && siteExists(companyId, siteId);
+
+
+          // ----------------------------------------------
+          // CREATE A PENDING ASSET PROPOSAL
+          // ----------------------------------------------
+
+          allow create: if isCompanyMember(companyId)
+            && siteExists(companyId, siteId)
+
+            // The authenticated engineer must be recorded.
+            && request.resource.data.createdBy == request.auth.uid
+
+            // Engineers may only create pending proposals.
+            && request.resource.data.status == "pending"
+
+            // Timestamp must come from the server.
+            && request.resource.data.createdAt == request.time
+
+            // Only permitted fields may be submitted.
+            && request.resource.data.keys().hasOnly([
+              "createdBy",
+              "createdAt",
+              "status",
+              "type",
+              "location",
+              "reason",
+              "testData",
+              "assetPrefix",
+              "assetNumber",
+              "assetId"
+            ])
+
+            // All required fields must be present.
+            && request.resource.data.keys().hasAll([
+              "createdBy",
+              "createdAt",
+              "status",
+              "type",
+              "location",
+              "reason",
+              "testData",
+              "assetPrefix",
+              "assetNumber",
+              "assetId"
+            ])
+
+
+            // --------------------------------------------
+            // ASSET IDENTIFICATION VALIDATION
+            // --------------------------------------------
+
+            // Company-defined prefix, such as EXT or FE-.
+            // A blank prefix is permitted.
+            && request.resource.data.assetPrefix is string
+            && request.resource.data.assetPrefix.size() <= 20
+
+            // Engineer-entered asset number.
+            // Leading zeros are preserved as text.
+            && request.resource.data.assetNumber is string
+            && request.resource.data.assetNumber.size() > 0
+            && request.resource.data.assetNumber.size() <= 40
+
+            // Complete displayed equipment reference.
+            && request.resource.data.assetId is string
+            && request.resource.data.assetId.size() > 0
+            && request.resource.data.assetId.size() <= 60
+
+            // Full reference must match prefix + number.
+            && request.resource.data.assetId ==
+              request.resource.data.assetPrefix +
+              request.resource.data.assetNumber
+
+
+            // --------------------------------------------
+            // EXTINGUISHER DETAILS VALIDATION
+            // --------------------------------------------
+
+            && request.resource.data.type is string
+            && request.resource.data.type.size() > 0
+            && request.resource.data.type.size() <= 100
+
+            && request.resource.data.location is string
+            && request.resource.data.location.size() > 0
+            && request.resource.data.location.size() <= 200
+
+            && request.resource.data.reason is string
+            && request.resource.data.reason.size() > 0
+            && request.resource.data.reason.size() <= 1000
+
+            // Development testing marker.
+            && request.resource.data.testData is bool;
+
+
+          // ----------------------------------------------
+          // PROTECT SUBMITTED PROPOSALS
+          // ----------------------------------------------
+
+          // Engineers cannot approve, rewrite or delete
+          // existing proposal records.
+          allow update, delete: if false;
+
+
+          // ==============================================
+          // PHOTOGRAPHS FOR THIS SPECIFIC PROPOSAL
+          // ==============================================
+
+          match /photos/{photoId} {
+
+            function proposalPath() {
+              return /databases/$(database)/documents/companies/$(companyId)/sites/$(siteId)/extinguisherProposals/$(proposalId);
+            }
+
+            function proposalExists() {
+              return exists(proposalPath());
+            }
+
+            function isProposalOwner() {
+              return proposalExists()
+                && get(proposalPath()).data.createdBy
+                  == request.auth.uid;
+            }
+
+
+            // --------------------------------------------
+            // READ PHOTOGRAPH RECORDS
+            // --------------------------------------------
+
+            allow read: if isCompanyMember(companyId)
+              && proposalExists();
+
+
+            // --------------------------------------------
+            // REGISTER A NEW PHOTOGRAPH
+            // --------------------------------------------
+
+            allow create: if isCompanyMember(companyId)
+              && isProposalOwner()
+
+              // Photographs may be added only while the
+              // proposal is awaiting office approval.
+              && get(proposalPath()).data.status == "pending"
+
+              // Photograph must belong to the correct
+              // company, building and proposal.
+              && request.resource.data.companyId == companyId
+              && request.resource.data.siteId == siteId
+              && request.resource.data.proposalId == proposalId
+              && request.resource.data.photoId == photoId
+
+              // Engineer identity and server timestamp.
+              && request.resource.data.uploadedBy == request.auth.uid
+              && request.resource.data.uploadedAt == request.time
+
+              // Required photograph metadata.
+              && request.resource.data.keys().hasAll([
+                "companyId",
+                "siteId",
+                "proposalId",
+                "photoId",
+                "uploadedBy",
+                "uploadedAt",
+                "storagePath",
+                "contentType",
+                "photoType"
+              ])
+
+              // Reject unexpected photograph fields.
+              && request.resource.data.keys().hasOnly([
+                "companyId",
+                "siteId",
+                "proposalId",
+                "photoId",
+                "uploadedBy",
+                "uploadedAt",
+                "storagePath",
+                "contentType",
+                "photoType"
+              ])
+
+              // Storage path must match the exact
+              // company, building, proposal and photo ID.
+              && request.resource.data.storagePath ==
+                "companies/" + companyId +
+                "/sites/" + siteId +
+                "/extinguisherProposals/" + proposalId +
+                "/photos/" + photoId
+
+              // Accepted photograph formats.
+              // WebP is Instafire's standard.
+              && request.resource.data.contentType in [
+                "image/webp",
+                "image/jpeg",
+                "image/png"
+              ]
+
+              // Photograph classification.
+              && request.resource.data.photoType in [
+                "equipment",
+                "label",
+                "defect",
+                "other"
+              ];
+
+
+            // Existing photo records are immutable.
+            allow update, delete: if false;
+          }
+        }
+      }
+    }
+
+
+    // =====================================================
+    // DENY ALL OTHER ACCESS
+    // =====================================================
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

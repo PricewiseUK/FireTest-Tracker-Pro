@@ -1,0 +1,16 @@
+.accounting { max-width: 1100px; margin: auto; color: #e7edf7; }
+.accounting p { line-height: 1.6; }
+.accounting-providers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.accounting article, .accounting-confirm { padding: 20px; border: 1px solid #506078; border-radius: 12px; margin: 16px 0; background: #152337; }
+.accounting button, .accounting a { margin: 6px; padding: 10px 14px; min-height: 44px; border-radius: 6px; }
+.accounting button { cursor: pointer; background: #f4ba4e; color: #152337; border: 0; font-weight: 600; }
+.accounting button:disabled { opacity: .5; cursor: default; }
+.accounting a { display: inline-block; color: #92cfff; }
+.accounting-demo { border-left: 4px solid #f4ba4e; padding: 12px; background: #26344a; }
+.accounting form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.accounting label { display: grid; gap: 8px; }
+.accounting input { padding: 10px; min-width: 0; }
+.accounting-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 12px 0; }
+.accounting table { width: 100%; text-align: left; border-collapse: collapse; }
+.accounting td, .accounting th { padding: 10px 4px; border-bottom: 1px solid #506078; overflow-wrap: anywhere; }
+@media (max-width: 600px) { .accounting-confirm { padding: 10px; } .accounting table { font-size: 12px; } }

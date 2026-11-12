@@ -1,0 +1,12 @@
+.unassigned-jobs { flex: 0 0 auto; min-width: 0; margin-bottom: 10px; padding: 10px 12px; border: 1px solid #3b444a; border-radius: 8px; background: #15191c; }
+.unassigned-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 34px; padding: 4px 0; background: transparent; border: 0; color: #edf1f3; font: inherit; font-size: 13px; font-weight: 800; text-align: left; }
+.unassigned-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 10px; max-height: 210px; overflow-y: auto; overscroll-behavior: contain; padding: 4px 2px; }
+.unassigned-card { min-width: 0; padding: 10px; border: 1px solid #59656d; border-left: 3px solid #929ca5; border-radius: 7px; background: #20262a; overflow-wrap: anywhere; }
+.unassigned-card > strong, .unassigned-card > span, .unassigned-card > small { display: block; margin: 3px 0; font-size: 12px; line-height: 1.4; }
+.unassigned-card > small { color: #c4cdd3; }
+.unassigned-fault { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 5px 0; font-size: 12px; line-height: 1.4; }
+.unassigned-card .callout-actions { justify-content: flex-start; gap: 6px; margin-top: 9px; }
+.unassigned-card button { flex: 1 1 100px; min-height: 34px; padding: 6px 8px; font-size: 11px; }
+.unassigned-card .unassigned-open { display: block; width: 100%; min-height: 34px; padding: 0; border: 0; background: transparent; color: #fff; font: inherit; font-size: 12px; text-align: left; }
+.unassigned-jobs button:focus-visible { outline: 2px solid #ff9a6a; outline-offset: 2px; }
+@media (max-width: 600px) { .unassigned-cards { max-height: 230px; } .unassigned-card button { min-height: 42px; } }

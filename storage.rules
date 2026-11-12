@@ -1,0 +1,78 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // User must be signed in.
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // User must be an active member of this company.
+    function isCompanyMember(companyId) {
+      return signedIn()
+        && firestore.exists(
+          /databases/(default)/documents/companies/$(companyId)/members/$(request.auth.uid)
+        )
+        && firestore.get(
+          /databases/(default)/documents/companies/$(companyId)/members/$(request.auth.uid)
+        ).data.status == "active";
+    }
+
+    // The proposal must exist in the correct building.
+    function proposalExists(companyId, siteId, proposalId) {
+      return firestore.exists(
+        /databases/(default)/documents/companies/$(companyId)/sites/$(siteId)/extinguisherProposals/$(proposalId)
+      );
+    }
+
+    // Only the engineer who created the proposal
+    // can upload photographs to it.
+    function ownsProposal(companyId, siteId, proposalId) {
+  return proposalExists(companyId, siteId, proposalId)
+
+    // Only the engineer who submitted the proposal.
+    && firestore.get(
+      /databases/(default)/documents/companies/$(companyId)/sites/$(siteId)/extinguisherProposals/$(proposalId)
+    ).data.createdBy == request.auth.uid
+
+    // Photographs can only be added while awaiting approval.
+    && firestore.get(
+      /databases/(default)/documents/companies/$(companyId)/sites/$(siteId)/extinguisherProposals/$(proposalId)
+    ).data.status == "pending";
+}
+
+    // EXTINGUISHER PROPOSAL PHOTOGRAPHS
+    match /companies/{companyId}/sites/{siteId}/extinguisherProposals/{proposalId}/photos/{photoId} {
+
+      // Active company members can view photographs
+      // belonging to existing proposals.
+      allow read: if isCompanyMember(companyId)
+        && proposalExists(companyId, siteId, proposalId);
+
+      // The original engineer can upload new images.
+      allow create: if isCompanyMember(companyId)
+        && ownsProposal(companyId, siteId, proposalId)
+        // Explicitly require a new object, including upload APIs evaluated as create.
+        && resource == null
+
+        // Maximum 10MB per photograph.
+        && request.resource.size > 0
+        && request.resource.size <= 10 * 1024 * 1024
+
+        // Only supported image formats.
+        && request.resource.contentType.matches(
+          'image/(webp|jpeg|png)'
+        );
+
+      // Existing evidence cannot be overwritten or deleted
+      // through the engineer's application.
+      allow update, delete: if false;
+    }
+
+    // Everything else remains blocked.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

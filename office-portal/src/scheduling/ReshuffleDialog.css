@@ -1,0 +1,10 @@
+.schedule-reassign.schedule-reshuffle { width: min(900px, 100%); }
+.schedule-reshuffle-table { max-width: 100%; overflow: auto; margin-top: 12px; border: 1px solid #465159; border-radius: 6px; }
+.schedule-reshuffle-table table { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }
+.schedule-reshuffle-table caption { padding: 10px; color: #b9c2c9; }
+.schedule-reshuffle-table th, .schedule-reshuffle-table td { padding: 10px; vertical-align: top; border-top: 1px solid #394249; overflow-wrap: anywhere; }
+.schedule-reshuffle-table thead { background: #252c31; }
+.schedule-reshuffle-table small, .schedule-reshuffle-table td span { display: block; margin-top: 5px; color: #b9c2c9; font-size: 11px; line-height: 1.5; }
+.schedule-reshuffle .schedule-conflicts li { display: block; font-size: 12px; line-height: 1.5; }
+.schedule-conflict-actions { flex-wrap: wrap; }
+.schedule-conflict-actions button { min-width: 0; white-space: normal; overflow-wrap: anywhere; }

@@ -1,0 +1,145 @@
+.office-header {
+  flex: 0 0 auto;
+  min-width: 0;
+  min-height: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 20px 32px;
+
+  background: #101315;
+  border-bottom: 1px solid #30363b;
+}
+
+.office-header-left {
+  min-width: 0;
+}
+
+.office-header-label {
+  color: #ff641c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  margin-bottom: 8px;
+}
+
+.office-header-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.office-header-right {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: 25px;
+  min-width: 0;
+}
+
+.office-header-company {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  max-width: 190px;
+}
+
+.office-header-company-label,
+.office-header-user span {
+  color: #84909a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.office-header-company strong,
+.office-header-user strong {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.office-header-account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.office-header-avatar {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #38241b;
+  border: 1px solid #ff641c;
+  border-radius: 50%;
+
+  color: #ff641c;
+  font-weight: 900;
+}
+
+.office-header-user {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  max-width: 190px;
+}
+
+.office-header-signout {
+  padding: 11px 15px;
+
+  background: transparent;
+  border: 1px solid #3d454b;
+  border-radius: 7px;
+
+  color: #d1d5db;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.office-header-signout:hover {
+  border-color: #ff641c;
+  color: #ff641c;
+}
+
+@media (max-width: 1100px) {
+  .office-header-company {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .office-header {
+    padding: 18px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .office-header-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .office-header-user {
+    max-width: 150px;
+  }
+
+  .office-header-title {
+    font-size: 21px;
+  }
+}

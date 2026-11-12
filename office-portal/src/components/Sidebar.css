@@ -1,0 +1,279 @@
+/* =========================================
+   INSTAFIRE OFFICE SIDEBAR
+   ========================================= */
+
+.sidebar {
+  width: 268px;
+  min-width: 268px;
+  flex: 0 0 auto;
+  height: 100vh;
+  height: 100dvh;
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #15191c;
+  border-right: 1px solid #30363b;
+
+  transition:
+    width 0.2s ease,
+    min-width 0.2s ease;
+}
+
+.sidebar-collapsed {
+  width: 78px;
+  min-width: 78px;
+}
+
+/* =========================================
+   BRANDING
+   ========================================= */
+
+.sidebar-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 110px;
+  padding: 20px 17px;
+
+  border-bottom: 1px solid #30363b;
+}
+
+.sidebar-brand {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-banner-image {
+  display: block;
+  width: 100%;
+  max-width: 215px;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.sidebar-logo-image {
+  display: block;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+/* =========================================
+   COLLAPSE BUTTON
+   ========================================= */
+
+.sidebar-toggle {
+  position: absolute;
+  right: 10px;
+  bottom: -16px;
+  z-index: 2;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #252a2e;
+  border: 1px solid #3d454b;
+  border-radius: 50%;
+
+  color: #ffffff;
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+  border-color: #ff641c;
+  color: #ff641c;
+}
+
+.sidebar-collapsed .sidebar-top {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.sidebar-collapsed .sidebar-toggle {
+  right: 23px;
+}
+
+/* =========================================
+   COMPANY WORKSPACE
+   ========================================= */
+
+.sidebar-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin: 28px 12px 15px;
+  padding: 15px 13px;
+
+  background: #1e2428;
+  border: 1px solid #30363b;
+  border-radius: 9px;
+}
+
+.workspace-label {
+  color: #9ca3af;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.workspace-name {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-nav-item {
+  width: 100%;
+  min-height: 47px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 0 13px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  color: #aeb6be;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.sidebar-nav-item:hover {
+  background: #242a2e;
+  color: #ffffff;
+}
+
+.sidebar-nav-active {
+  background: #38241b;
+  border-color: #734024;
+  color: #ff641c;
+}
+
+.sidebar-nav-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar-nav-label {
+  white-space: nowrap;
+}
+
+/* =========================================
+   COLLAPSED NAVIGATION
+   ========================================= */
+
+.sidebar-collapsed .sidebar-navigation {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.sidebar-collapsed .sidebar-nav-item {
+  justify-content: center;
+  padding: 0;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding: 20px 15px;
+
+  border-top: 1px solid #30363b;
+}
+
+.sidebar-version {
+  color: #59636b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 78px;
+    min-width: 78px;
+  }
+
+  .sidebar-banner-image {
+    display: none;
+  }
+
+  .sidebar-top {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sidebar-workspace,
+  .sidebar-nav-label,
+  .sidebar-version {
+    display: none;
+  }
+
+  .sidebar-navigation {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sidebar-nav-item {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "instafire-62d54"
+  },
+  "targets": {
+    "instafire-62d54": {
+      "hosting": {
+        "office": [
+          "instafirepilot-office"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

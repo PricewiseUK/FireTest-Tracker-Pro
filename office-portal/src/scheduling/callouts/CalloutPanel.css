@@ -1,0 +1,40 @@
+.callout-launch-button { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 7px 12px; border: 1px solid #ff641c; border-radius: 6px; background: #ff641c; color: #15100d; font: inherit; font-size: 11px; font-weight: 900; cursor: pointer; }
+.callout-launch-button:hover { background: #ff8248; }
+.callout-launch-button:focus-visible, .callout-panel button:focus-visible, .callout-panel input:focus-visible, .callout-panel select:focus-visible, .callout-panel textarea:focus-visible { outline: 2px solid #ff9a6a; outline-offset: 2px; }
+.schedule-reassign.callout-panel { width: min(760px, 100%); min-width: 0; max-height: calc(100dvh - 36px); overscroll-behavior: contain; }
+.callout-panel header > div { min-width: 0; }
+.callout-panel h3 { overflow-wrap: anywhere; }
+.callout-panel label { margin: 0 0 6px; font-size: 11px; line-height: 1.5; letter-spacing: 0.2px; }
+.callout-panel label small { color: #9aa6ae; font-size: 10px; font-weight: 400; }
+.callout-panel input, .callout-panel select, .callout-panel textarea { display: block; width: 100%; min-width: 0; min-height: 38px; height: auto; margin: 0; padding: 8px 10px; border: 1px solid #59656d; border-radius: 6px; background: #101517; color: #f2f5f6; font: inherit; font-size: 13px; line-height: 1.5; color-scheme: dark; }
+.callout-panel textarea { resize: vertical; }
+.callout-panel select:disabled { color: #aeb7bd; opacity: 0.8; }
+.callout-panel [aria-invalid='true'] { border-color: #f39191; }
+.callout-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 16px; margin-top: 16px; }
+.callout-wide { grid-column: 1 / -1; }
+.callout-help { margin: 5px 0 0; color: #aeb7bd; font-size: 11px; line-height: 1.5; }
+.callout-field-error { display: block; margin: 5px 0 0; color: #ffb3b3; font-size: 12px; line-height: 1.5; }
+.callout-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+.callout-actions button, .callout-selected-site > button { min-width: 0; min-height: 38px; padding: 8px 12px; border-radius: 6px; font: inherit; font-size: 12px; font-weight: 800; white-space: normal; overflow-wrap: anywhere; cursor: pointer; }
+.callout-search { margin-top: 16px; }
+.callout-search > p { color: #aeb7bd; font-size: 12px; }
+.callout-search-results { display: grid; gap: 8px; padding: 0; list-style: none; }
+.callout-search-results button { display: flex; width: 100%; min-width: 0; flex-direction: column; gap: 4px; padding: 11px 13px; border: 1px solid #465159; border-radius: 7px; background: #20262a; color: #edf1f3; text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+.callout-search-results button:hover { border-color: #ff641c; }
+.callout-search-results strong { font-size: 13px; }
+.callout-search-results span { color: #ffb18a; font-size: 12px; }
+.callout-search-results small { color: #b9c2c9; font-size: 11px; line-height: 1.5; }
+.callout-selected-site { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-top: 14px; padding: 12px; border: 1px solid #465159; border-radius: 7px; background: #20262a; }
+.callout-selected-site dl { flex: 1 1 300px; margin: 0; min-width: 0; }
+.callout-selected-site dl > div, .callout-preview dl > div { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 8px; padding: 6px 0; }
+.callout-panel dt { color: #aeb7bd; font-size: 11px; font-weight: 800; }
+.callout-panel dd { margin: 0; color: #edf1f3; font-size: 12px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.callout-preview dl > div { border-bottom: 1px solid #394249; }
+.callout-preview-badge { padding: 10px 12px; border: 1px solid #a66a27; border-radius: 6px; background: #342719; color: #ffd6a3; font-size: 13px; font-weight: 800; }
+@media (max-width: 600px) {
+  .schedule-reassign.callout-panel { padding: 16px; }
+  .callout-fields { grid-template-columns: minmax(0, 1fr); }
+  .callout-panel input, .callout-panel select, .callout-panel textarea { font-size: 16px; }
+  .callout-selected-site dl > div, .callout-preview dl > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .callout-actions button { flex: 1 1 140px; }
+}

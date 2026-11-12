@@ -1,5 +1,50 @@
 This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
 
+## Core product principle: no employee tracking
+
+InstaFirePilot is a professional fire safety work and inspection application, not
+an employee surveillance platform. This applies to future features, integrations,
+analytics, data models and office views.
+
+- Do not implement GPS tracking, movement histories, activity monitoring,
+  individual button-press tracking, per-question timestamps, productivity scoring
+  or time-on-screen monitoring. Do not infer these indirectly from other data.
+- Office visibility is limited to assigned jobs, explicit job statuses, completed
+  inspection results and submitted-work review. Checklist progress and servicing
+  draft saves remain private in the engineer's local draft until explicit job
+  completion synchronisation; no per-question uploads or listeners.
+- Collect only information necessary for scheduling, legitimate inspection
+  records, defects, compliance documentation and approvals. Do not repurpose
+  local recovery/save metadata into an employee activity feed.
+- Limit audit logs to meaningful record and approval events, such as explicit
+  job start/completion, submitted records, authorised corrections and reviews.
+  Do not log interactions or draft activity as surveillance.
+- Tracking capabilities require explicit prior user approval; ordinary feature
+  requests, SDK defaults or analytics availability do not authorise them.
+
+See [the product privacy principle](docs/no-employee-tracking.md).
+
+## Non-negotiable multi-tenant data isolation
+
+- Use one centrally managed, versioned global equipment catalogue across fire
+  alarm panels, fire extinguishers, emergency lighting, fire doors and fire
+  blankets. Shared definitions contain no customer installation or private data.
+- Customer installations reference catalogue versions but retain company-private
+  configurations, assets, inspections, defects, service histories and files.
+  Catalogue updates must not overwrite site configuration or historical records.
+- Never permit access to another company's private data. Enforce company isolation
+  with Firebase Security Rules and trusted backend authorisation, not UI filtering.
+  Apply the same boundary to Storage, queries, offline caches, backend functions
+  and office portal access. Shared catalogue access never grants customer access.
+- Before production release, automated cross-tenant access tests must pass for
+  every equipment module and its associated files. Existing extinguisher tests
+  alone do not establish coverage for other modules.
+- Do not create test fire alarm records or modify production Firebase until the
+  data model and permissions have been reviewed. Review does not itself authorise
+  deployment or migration; obtain the required explicit production authorisation.
+
+See [the catalogue and tenant isolation proposal](docs/global-catalogue-and-tenant-isolation.md).
+
 ## Expo has changed — do not trust your training data
 
 Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:

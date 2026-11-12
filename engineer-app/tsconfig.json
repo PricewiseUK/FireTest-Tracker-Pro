@@ -1,0 +1,5 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": { "strict": true, "noEmit": true, "allowImportingTsExtensions": true },
+  "include": ["src/modules/Extinguishers/*.ts", "src/modules/Extinguishers/*.tsx", "src/modules/Jobs/**/*.tsx", "src/modules/FireAlarms/**/*.ts", "src/modules/FireAlarms/**/*.tsx", "src/services/**/*.ts", "../backend/shared/**/*.ts"]
+}

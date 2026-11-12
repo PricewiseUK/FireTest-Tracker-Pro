@@ -1,0 +1,320 @@
+﻿path,git_status,category,proposed_action,reason
+.claude/settings.json, D,Private/local files,STAGE_LOCAL_CONFIG_REMOVAL,Remove local tool permissions from future tracked tree; original content remains in Git history and protected backup
+.gitignore, M,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+AGENTS.md, M,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+App.js, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/App.js; no source content is lost
+app.json, D,Configuration,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/app.json; no source content is lost
+assets/android-icon-background.png, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/assets/android-icon-background.png; no source content is lost
+assets/android-icon-foreground.png, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/assets/android-icon-foreground.png; no source content is lost
+assets/android-icon-monochrome.png, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/assets/android-icon-monochrome.png; no source content is lost
+assets/favicon.png, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/assets/favicon.png; no source content is lost
+assets/icon.png, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/assets/icon.png; no source content is lost
+assets/splash-icon.png, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/assets/splash-icon.png; no source content is lost
+index.js, D,Required source code,STAGE_RELOCATION_DELETE,Pair this original-path deletion with engineer-app/index.js; no source content is lost
+package-lock.json, M,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+package.json, M,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+website/.gitignore, D,Configuration,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/.oxlintrc.json, D,Configuration,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/README.md, D,Documentation,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/index.html, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/package-lock.json, D,Configuration,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/package.json, D,Configuration,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/public/favicon.svg, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/public/instafire-banner.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/public/robots.txt, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/public/sitemap.xml, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/App.css, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/App.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/assets/Firealarms.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/assets/advanced-mxpro5.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/assets/ctec-cfp.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/assets/ctec-zfp.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/assets/fike-twinflex.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/assets/gent-vigilon.webp, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/components/Footer.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/components/Navbar.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/components/WebsiteLayout.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/index.css, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/main.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/pages/EmergencyLighting.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/pages/FireAlarms.css, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/pages/FireAlarms.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/pages/FireExtinguishers.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/src/pages/NotFound.jsx, D,Required source code,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+website/vite.config.js, D,Configuration,HOLD_WEBSITE_BOUNDARY,Deletion intent unconfirmed; separate boundary commit recommended after confirmation
+.firebaserc,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+README.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+backend/accounting/index.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/accounting/provider.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/accounting/service.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/accounting/xeroHttp.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/catalogue/definitions/advancedMxPro5.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/catalogue/emulatorAdapter.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/catalogue/publication.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/index.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/jobs/functions.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/jobs/service.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/package-lock.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+backend/package.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+backend/shared/jobContract.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+backend/tsconfig.functions.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+backend/tsconfig.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+docs/STAGE-2-MIGRATION-REPORT.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/STAGE-3-COMMIT-MANIFEST.csv,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/STAGE-3-VERIFICATION-REPORT.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/accounting-integrations.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/accounting-zip-repair.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/advanced-mxpro5-emulator-catalogue.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/engineer-job-synchronisation.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/engineer-jobs-and-day-approval-proposal.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-annual-basic-candidates.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-asset-cards-and-demo-preservation.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-calculator-and-servicing-stages.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-eight-question-draft-fix.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-engineer-checklist-ui.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-engineer-navigation.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-inspection-foundation.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-monthly-annual-candidates.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-new-resume-stage1.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/extinguisher-simple-checklist.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/fire-alarm-system-checks-plan.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/fire-alarms-readonly-fixture-register.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/global-catalogue-and-tenant-isolation.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/no-employee-tracking.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/offline-inspection-drafts.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/reference/Instafire_Features_and_Development_Roadmap_October_2026.pdf,??,Documentation,HOLD_BINARY_REVIEW,Optional opaque design/reference binary; owner confidentiality review before GitHub inclusion
+docs/reference/instafire-banner.af,??,Documentation,HOLD_BINARY_REVIEW,Optional opaque design/reference binary; owner confidentiality review before GitHub inclusion
+docs/shared-catalogue-security-phase1.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/shared-equipment-catalogue-foundation-review.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/start-resume-extinguisher-inspection.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+docs/website-boundary-review.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+engineer-app/App.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/app.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+engineer-app/assets/android-icon-background.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/android-icon-foreground.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/android-icon-monochrome.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/Firealarms.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/emergencylights-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/extinguisher-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/fireblanket-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/header-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/history-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/hochiki.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/sites-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/background assets/testing-bg.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/callpoint-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/emergencylights-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/extinguisher-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/favicon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/fireblanket-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/header-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/heat-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/history-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/instafire-banner.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/instafire-banner.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/instafire-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/multisensor-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/relay-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/sites-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/smoke-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/splash-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/assets/testing-bg.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/eslint.config.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+engineer-app/index.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/metro.config.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+engineer-app/package-lock.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+engineer-app/package.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+engineer-app/src/components/AssetIdInput.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/components/CminCalculator.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/components/InstafireDialog.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/firebaseConfig.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+engineer-app/src/modules/Extinguishers/DevelopmentChecklistReplacement.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherAssetRegisterScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherBuildingDetailsScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherBuildingsScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherCalculatorScreen.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherChecklist.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherHomeScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherInspectionScreen.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherProposalScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherResultCard.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherResumeScreen.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/ExtinguisherServicingPanel.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/InspectionDraftReview.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/approvedInspectionAsset.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/engineerNavigation.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/engineerNavigationStorage.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/extinguisherAssetPresentation.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/extinguisherCalculations.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/inspectionChecklistSelection.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/inspectionDraftSummary.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/inspectionNotesController.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/inspectionPhotoAdapter.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/inspectionPhotoAttachment.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/inspectionTypes.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/jobCompletionDraft.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/pendingRoutineChecklist.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Extinguishers/servicingDraft.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/DetectorSitingObservationsPanel.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/FireAlarmDeviceTestingScreen.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/FireAlarmSystemChecksPanel.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/FireAlarmsHomeScreen.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/detectorSitingGuidance.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/fireAlarmRegister.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/fireAlarmTestingController.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/fixtures/advancedMxPro5Catalogue.json,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/FireAlarms/systemChecks.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/modules/Jobs/EngineerJobPanel.tsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/screens/LoginScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/screens/SettingsScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/screens/SitesScreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/services/fireAlarmDraftStorage.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/services/inspectionDraftStorage.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/services/jobSynchronisation.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/services/localFireAlarmDraftStore.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/services/localInspectionDraftStore.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/services/localJobCompletionOutbox.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/utils/cminCalculation.ts,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/src/utils/firestoreDocument.mjs,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+engineer-app/tsconfig.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+eslint.config.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+firebase.emulators.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+firebase.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+firestore.indexes.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+firestore.rules,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/.env.example,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/.gitignore,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/.oxlintrc.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/IMPORT-WIZARD.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+office-portal/PHASE-2D2-REPORT.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+office-portal/README.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+office-portal/docs/scheduling-overnight-model.md,??,Documentation,STAGE_ADD_OR_UPDATE,"Project instructions, product policy, migration evidence or development documentation"
+office-portal/functions/.env.example,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/index.html,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/package-lock.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/package.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/public/favicon.svg,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/public/icons.svg,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/public/instafire-banner.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/public/instafire-banner.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/public/instafire-icon.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/public/instafire-icon.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/public/instafire-pilot-banner.webp,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/App.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/App.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/assets/hero.png,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/assets/react.svg,??,Obsolete files,HOLD_UNUSED_TEMPLATE_ASSET,"Unreferenced starter artwork; retained locally, not required by the production entry points"
+office-portal/src/assets/vite.svg,??,Obsolete files,HOLD_UNUSED_TEMPLATE_ASSET,"Unreferenced starter artwork; retained locally, not required by the production entry points"
+office-portal/src/components/Header.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/components/Header.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/components/OfficeLayout.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/components/OfficeLayout.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/components/Sidebar.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/components/Sidebar.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/firebaseConfig.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/src/imports/import.worker.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/imports/importModel.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/imports/parseFile.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/index.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/main.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/AccountingIntegrations.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/AccountingIntegrations.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/AssetImports.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/AssetImports.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/Dashboard.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/Dashboard.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/EngineerScheduling.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/pages/EngineerScheduling.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/AppointmentDetails.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/ConflictResolutionActions.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/MoveAppointmentDialog.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/PlannerFullscreen.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/ReshuffleDialog.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/ReshuffleDialog.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/ResizeAppointmentDialog.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/appointmentTime.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/AssignJobDialog.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/CalloutForm.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/CalloutPanel.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/CalloutPanel.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/CalloutPreview.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/CustomerSiteSearch.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/JobWorkspaceDialogs.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/NewCallout.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/UnassignedJobs.css,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/UnassignedJobs.jsx,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/calloutValidation.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/customerSearch.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/demoCustomers.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/jobAssignment.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/localJobModel.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/localJobStorage.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/useCalloutDraft.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/useJobWorkspace.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/callouts/useLocalSchedule.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/demoSchedule.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/scheduleMove.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/scheduleReassignment.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/scheduleReshuffle.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/scheduleResize.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/timelineLayout.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/usePlannerFullscreen.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/useScheduleReshuffle.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/src/scheduling/useTimelineMove.js,??,Required source code,STAGE_ADD_OR_UPDATE,Preserved application/backend source or required asset
+office-portal/tests/AssetImports.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/EngineerScheduling.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/EngineerSchedulingMove.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/EngineerSchedulingOvernight.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/EngineerSchedulingReshuffle.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/EngineerSchedulingResize.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/LocalJobWorkflow.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/NewCallout.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/PlannerFullscreen.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/Sidebar.test.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/appointmentFixture.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/appointmentTime.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/calloutSearch.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/calloutValidation.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/imports.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/jobAssignment.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/localJobs.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/localStorageSetup.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/manual-preview.html,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/manual-preview.jsx,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/scheduleMove.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/scheduleReassignment.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/scheduleReshuffle.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/scheduleResize.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tests/timelineLayout.test.js,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+office-portal/tsconfig.imports.json,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/vite.config.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+office-portal/vitest.config.js,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+storage.rules,??,Configuration,STAGE_ADD_OR_UPDATE,Required reviewed application/tooling/deployment configuration or placeholder-only environment template
+tests/catalogue/emulatorSafety.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/fireAlarms/detectorSitingGuidance.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/fireAlarms/register.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/fireAlarms/systemChecks.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/fireAlarms/testingDraft.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/accounting.rules.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/boundedChecklistProposal.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/catalogue.rules.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/extendedChecklist.rules.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/inspection.rules.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/jobs.rules.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/mxpro.rules.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/run-emulators.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/firebase/seed-engineer-jobs.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/fixtures/engineerJobs.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/assetDocument.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/developmentChecklistReplacement.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/engineerNavigation.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/extinguisherAssetPresentation.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/extinguisherCalculations.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/inspectionNotes.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/jobCompletion.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/localDraftStore.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/monthlyAnnualChecklists.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/newInspection.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/pendingRoutineChecklist.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve
+tests/inspections/servicingDraft.test.mjs,??,Tests,STAGE_ADD_OR_UPDATE,Existing unit/security/fixture/harness coverage; preserve

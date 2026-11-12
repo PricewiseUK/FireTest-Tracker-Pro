@@ -1,0 +1,36 @@
+{
+  "name": "office-portal",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "overrides": {
+    "@grpc/grpc-js": "^1.13.6"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.imports.json"
+  },
+  "dependencies": {
+    "firebase": "^13.1.0",
+    "lucide-react": "^1.59.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "devDependencies": {
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.9",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "31.0.0",
+    "oxlint": "^1.81.0",
+    "typescript": "7.0.2",
+    "vite": "^8.3.0",
+    "vitest": "5.1.0"
+  }
+}

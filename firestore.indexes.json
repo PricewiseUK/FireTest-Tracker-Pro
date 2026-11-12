@@ -1,0 +1,7 @@
+{
+  "indexes": [
+    { "collectionGroup": "jobs", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "companyId", "order": "ASCENDING" }, { "fieldPath": "assignedEngineerUid", "order": "ASCENDING" }] },
+    { "collectionGroup": "jobs", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "companyId", "order": "ASCENDING" }, { "fieldPath": "assignedEngineerUid", "order": "ASCENDING" }, { "fieldPath": "siteId", "order": "ASCENDING" }] }
+  ],
+  "fieldOverrides": [{ "collectionGroup": "accountingOutbox", "fieldPath": "status", "indexes": [{ "order": "ASCENDING", "queryScope": "COLLECTION" }, { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }] }]
+}

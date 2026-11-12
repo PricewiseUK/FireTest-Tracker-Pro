@@ -1,0 +1,15 @@
+/* Contents participate in the existing flex layout; hidden chrome retains its React state. */
+.office-chrome-slot { display: contents; }
+.office-chrome-slot[hidden] { display: none; }
+
+.office-layout.office-layout-fullscreen {
+  min-height: 0;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.office-layout-fullscreen .office-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}

@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "FireTest Tracker Pro",
+    "slug": "firetest-tracker-pro",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/instafire-icon.png",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/instafire-icon.png",
+        "backgroundColor": "#0B0D0E"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-status-bar",
+      "expo-font"
+    ]
+  }
+}

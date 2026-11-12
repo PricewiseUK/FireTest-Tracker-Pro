@@ -1,0 +1,41 @@
+{
+  "name": "firetest-tracker-pro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "~58.0.19",
+    "expo-file-system": "~58.0.11",
+    "expo-font": "~58.0.10",
+    "expo-image-manipulator": "~58.0.15",
+    "expo-image-picker": "~58.0.10",
+    "expo-linear-gradient": "~58.0.3",
+    "expo-status-bar": "~58.0.4",
+    "firebase": "^13.1.0",
+    "lucide-react": "^1.59.0",
+    "react": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-safe-area-context": "~5.10.1"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "eslint . --no-cache",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "npm --prefix .. run test:unit",
+    "test:security": "npm --prefix .. run test:security"
+  },
+  "private": true,
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "~19.3.0",
+    "eslint": "9",
+    "eslint-config-expo": "~58.0.4",
+    "firebase-tools": "^15.34.2",
+    "typescript": "~6.0.3"
+  }
+}

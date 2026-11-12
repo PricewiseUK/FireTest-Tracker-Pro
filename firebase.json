@@ -1,0 +1,27 @@
+{
+  "functions": [{ "source": "backend", "codebase": "accounting", "runtime": "nodejs22", "predeploy": ["npm --prefix backend run build"], "ignore": ["node_modules", "catalogue", "*.local", ".env*", "accounting", "tsconfig*.json"] }],
+  "firestore": {
+    "database": "(default)",
+    "location": "europe-west2",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "hosting": {
+    "target": "office",
+    "public": "office-portal/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

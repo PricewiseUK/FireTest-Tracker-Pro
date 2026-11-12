@@ -1,41 +1,55 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Dependencies and package-manager caches
 node_modules/
+.npm-cache/
+.cache/
 
-# Expo
+# Generated application/build/test output
 .expo/
+.firebase/
+.migration/
 dist/
+dist-ssr/
 web-build/
+coverage/
+backend/lib/
 expo-env.d.ts
-
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
+*.tsbuildinfo
+*.log
 .metro-health-check*
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
+# Local environment and credentials (placeholder templates remain visible)
+.env
+.env.*
+!.env.example
+!.env.*.example
+.secret.local
 *.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+*service-account*.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
 
-# local env files
-.env*.local
+# Local tools/editor/OS state
+.claude/
+.idea/
+.DS_Store
 
-# typescript
-*.tsbuildinfo
+# Generated native projects (Continuous Native Generation)
+/ios/
+/android/
+/engineer-app/ios/
+/engineer-app/android/
+.kotlin/
+*.orig.*
 
-# generated native folders
-/ios
-/android
+# Temporary archives; required source/assets are kept as ordinary files
+*.zip
+*.7z
+*.rar
+*.tar
+*.tgz
+*.tar.gz
